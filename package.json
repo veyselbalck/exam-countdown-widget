@@ -1,0 +1,29 @@
+{
+  "name": "exam-countdown-widget",
+  "version": "1.0.0",
+  "description": "A customizable countdown widget for exams, tests, and important dates on Windows",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.exam.countdownwidget",
+    "productName": "Exam Countdown",
+    "files": [
+      "index.html",
+      "styles.css",
+      "renderer.js",
+      "preload.js",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable"
+    }
+  },
+  "devDependencies": {
+    "electron": "^42.11.16",
+    "electron-builder": "^26.18.0"
+  }
+}

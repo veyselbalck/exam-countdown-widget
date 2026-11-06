@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a16">
+  <title>Exam Countdown</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="renderer.js" defer></script>
+</head>
+<body>
+  <main class="app-shell" id="appShell">
+    <section class="view widget-view" id="widgetView" hidden>
+      <header class="topbar">
+        <div class="brand drag-region">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>DESKTOP COUNTDOWN</span>
+        </div>
+        <div class="window-actions">
+          <button class="quiet-button" id="openSettings" type="button">Settings</button>
+          <button class="close-button" data-quit type="button" title="Quit app" aria-label="Quit app">×</button>
+        </div>
+      </header>
+
+      <div class="widget-content">
+        <div class="eyebrow" id="countdownStatus">TIME REMAINING</div>
+        <h1 id="eventName">My Exam</h1>
+        <p class="target-date" id="targetLabel"></p>
+
+        <div class="countdown-grid" aria-live="off" aria-label="Countdown">
+          <div class="time-unit time-unit-days"><span class="time-value" id="days">000</span><span class="time-label">DAYS</span></div>
+          <div class="time-unit"><span class="time-value" id="hours">00</span><span class="time-label">HOURS</span></div>
+          <div class="time-unit"><span class="time-value" id="minutes">00</span><span class="time-label">MINUTES</span></div>
+          <div class="time-unit"><span class="time-value" id="seconds">00</span><span class="time-label">SECONDS</span></div>
+        </div>
+
+        <footer class="widget-footer">
+          <span class="live-indicator"><span></span> LIVE COUNTDOWN</span>
+          <span id="timeZoneLabel">Local time</span>
+        </footer>
+      </div>
+    </section>
+
+    <section class="view settings-view" id="settingsView" hidden>
+      <header class="topbar">
+        <div class="brand drag-region">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>EXAM COUNTDOWN <span class="brand-divider">/</span> SETTINGS</span>
+        </div>
+        <button class="close-button" data-quit type="button" title="Quit app" aria-label="Quit app">×</button>
+      </header>
+
+      <div class="settings-content">
+        <div class="settings-heading">
+          <p class="eyebrow">MAKE IT YOURS</p>
+          <h1>Set your countdown<span>.</span></h1>
+          <p class="settings-intro">Add any exam, test, or important date and keep track from your desktop.</p>
+        </div>
+
+        <form id="settingsForm" novalidate>
+          <label class="field-label" for="eventNameInput">Event name</label>
+          <input class="text-input" id="eventNameInput" name="eventName" type="text" maxlength="48" placeholder="e.g. Final exam" required autocomplete="off">
+
+          <div class="field-row">
+            <div class="field-column">
+              <label class="field-label" for="targetDateInput">Target date</label>
+              <input class="text-input date-input" id="targetDateInput" name="targetDate" type="date" required>
+            </div>
+            <div class="field-column field-time">
+              <label class="field-label" for="targetTimeInput">Start time</label>
+              <input class="text-input" id="targetTimeInput" name="targetTime" type="time" required>
+            </div>
+          </div>
+
+          <fieldset class="theme-fieldset">
+            <legend class="field-label">Appearance</legend>
+            <div class="theme-options" role="group" aria-label="Color theme">
+              <button class="theme-option" data-theme-option="forest" type="button" aria-pressed="false"><span class="theme-swatch swatch-forest"></span>Forest</button>
+              <button class="theme-option" data-theme-option="night" type="button" aria-pressed="false"><span class="theme-swatch swatch-night"></span>Midnight</button>
+              <button class="theme-option" data-theme-option="light" type="button" aria-pressed="false"><span class="theme-swatch swatch-light"></span>Light</button>
+            </div>
+          </fieldset>
+
+          <div class="opacity-row">
+            <label class="field-label" for="opacityInput">Background opacity</label>
+            <output id="opacityValue" for="opacityInput">94%</output>
+          </div>
+          <input class="range-input" id="opacityInput" type="range" min="65" max="100" value="94">
+
+          <label class="startup-toggle" for="launchAtLoginInput">
+            <span class="toggle-copy"><strong>Launch with Windows</strong><small>Start automatically when you sign in.</small></span>
+            <input id="launchAtLoginInput" type="checkbox">
+            <span class="toggle-track" aria-hidden="true"></span>
+          </label>
+
+          <p class="form-error" id="formError" role="alert" hidden></p>
+          <div class="form-actions">
+            <button class="text-action" id="cancelSettings" type="button">Cancel</button>
+            <button class="save-button" id="saveSettings" type="submit"><span>Save and view countdown</span><span aria-hidden="true">↗</span></button>
+          </div>
+        </form>
+
+        <p class="local-note"><span aria-hidden="true">●</span> Your settings are stored on this device.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
