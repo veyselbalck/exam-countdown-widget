@@ -11,11 +11,11 @@ A lightweight, customizable countdown widget for exams, tests, and important dat
 - Optional Windows startup, disabled by default
 - Opens in the top-right corner without staying above other apps
 - Saves settings locally on your computer
-- Portable Windows `.exe`
+- Windows installer and portable `.exe`
 
-## Download and use
+## Download and install
 
-Download `Exam Countdown 1.0.0.exe` from the project's **Releases** page and run it. Enter your event name, date, and time, then select **Save and view countdown**. To make changes later, select **Settings** on the widget.
+Download `Exam Countdown Setup 1.0.0.exe` from the project's **Releases** page and run it. Follow the installer steps, then open Exam Countdown from the Start menu or desktop shortcut. Enter your event name, date, and time, then select **Save and view countdown**. To make changes later, select **Settings** on the widget.
 
 The app does not start with Windows unless you enable **Launch with Windows** in settings.
 
@@ -28,13 +28,13 @@ npm install
 npm start
 ```
 
-To build the portable Windows app:
+To build the Windows installer:
 
 ```powershell
 npm run dist
 ```
 
-The `.exe` is created in the `dist` folder. `dist` is excluded from Git, so attach the executable to a GitHub Release if you want people to download it directly.
+The installer `.exe` is created in the `dist` folder. To build a portable `.exe` that does not need installation, run `npm run dist:portable`. Build files are excluded from Git, so attach the desired `.exe` to a GitHub Release for users to download.
 
 ## Publish with GitHub Desktop
 
