@@ -35,12 +35,3 @@ npm run dist
 ```
 
 The installer `.exe` is created in the `dist` folder. To build a portable `.exe` that does not need installation, run `npm run dist:portable`. Build files are excluded from Git, so attach the desired `.exe` to a GitHub Release for users to download.
-
-## Publish with GitHub Desktop
-
-1. In GitHub Desktop, select **File > Add Local Repository** and choose the `exam-countdown-widget` folder.
-2. If prompted, choose the option to create a repository in that folder.
-3. Enter a commit summary such as `Initial release`, then select **Commit to main**.
-4. Select **Publish repository** and choose whether the repository should be public or private.
-
-The app's settings are stored in the user's local application data folder and are not added to the repository.
